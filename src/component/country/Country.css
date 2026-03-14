@@ -1,0 +1,18 @@
+.country {
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 8px 90px 1px purple;
+
+}
+
+.countryBtn {
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    padding: 8px;
+    padding-inline: 20px;
+    box-shadow: 1px 3px 10px 3px yellowgreen;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
