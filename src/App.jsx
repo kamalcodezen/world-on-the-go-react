@@ -1,17 +1,22 @@
+import { Suspense } from "react";
+import "./App.css";
+import Countries from "./component/Countries/Countries";
 
-import './App.css'
+const countriesApi = async () => {
+  const res = await fetch("https://openapi.programming-hero.com/api/all");
+  return await res.json();
+};
 
 function App() {
-
+  const countriesPromise = countriesApi();
 
   return (
     <>
-  
-          <h1>Get started</h1>
-       
-     
+      <Suspense fallback={<h1>Kamal data is loading.....</h1>}>
+        <Countries countriesPromise={countriesPromise}></Countries>
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
