@@ -16,3 +16,16 @@
     cursor: pointer;
     font-weight: 700;
 }
+
+.country-visited {
+    background-color: rgba(100, 148, 237, 0.706);
+    color: black;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    padding: 8px;
+    padding-inline: 20px;
+    box-shadow: 1px 3px 10px 3px yellowgreen;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
