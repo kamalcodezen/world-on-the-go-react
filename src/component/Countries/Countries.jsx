@@ -5,9 +5,16 @@ import "./Countries.css";
 const Countries = ({ countriesPromise }) => {
   const [visitedCountry, setVisitedCountry] = useState([]);
 
+  const [visitedFlag, setVisitedFlag] = useState([]);
+
   const handleVisitedCountry = (country) => {
     const updateVisitedCountry = [...visitedCountry, country];
     setVisitedCountry(updateVisitedCountry);
+  };
+
+  const handleVisitedFlag = (flag) => {
+    const updateVisitedFlag = [...visitedFlag, flag];
+    setVisitedFlag(updateVisitedFlag);
   };
 
   const countriesData = use(countriesPromise);
@@ -20,12 +27,18 @@ const Countries = ({ countriesPromise }) => {
         Total Countries {countries.length}
       </h1>
       <h2>Visited Country : {visitedCountry.length}</h2>
+      <h2>Visited Flag : {visitedFlag.length}</h2>
       <ol>
-       {
-        visitedCountry.map(visitCountry => <li>{visitCountry.name.common}</li>)
-
-       }
+        {visitedCountry.map((visitCountry) => (
+          <li>{visitCountry.name.common}</li>
+        ))}
       </ol>
+
+      <div>
+        {visitedFlag.map((flag) => (
+          <img src={flag}></img>
+        ))}
+      </div>
 
       <div className="countries">
         {countries.map((country) => (
@@ -33,6 +46,7 @@ const Countries = ({ countriesPromise }) => {
             handleVisitedCountry={handleVisitedCountry}
             key={country.cca3.cca3}
             country={country}
+            handleVisitedFlag={handleVisitedFlag}
           ></Country>
         ))}
       </div>
