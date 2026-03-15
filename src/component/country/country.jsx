@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Country.css";
-const Country = ({ country }) => {
+const Country = ({ country,handleVisitedCountry }) => {
   //   console.log(country);
 
   const [visited, setVisited] = useState(false);
@@ -18,6 +18,7 @@ const Country = ({ country }) => {
 
     // 3rd way
     setVisited(!visited);
+    handleVisitedCountry(country);
   };
 
   return (
@@ -28,7 +29,7 @@ const Country = ({ country }) => {
         <h3>Country Name : {country.name.common}</h3>
 
         <h4>
-          Country Population :{" "}
+         Population :{" "}
           {country.population.population > 3000000
             ? "Big Country"
             : "Small Country"}
