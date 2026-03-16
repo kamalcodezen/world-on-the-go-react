@@ -8,13 +8,16 @@ const Countries = ({ countriesPromise }) => {
   const [visitedFlag, setVisitedFlag] = useState([]);
 
   const handleVisitedCountry = (country) => {
-    const updateVisitedCountry = [...visitedCountry, country];
-    setVisitedCountry(updateVisitedCountry);
+    setVisitedCountry([...visitedCountry, country]);
   };
 
   const handleVisitedFlag = (flag) => {
-    const updateVisitedFlag = [...visitedFlag, flag];
-    setVisitedFlag(updateVisitedFlag);
+    const isExits = visitedFlag.find((item) => item === flag);
+
+    if (!isExits) {
+      const updateVisitedFlag = [...visitedFlag, flag];
+      setVisitedFlag(updateVisitedFlag);
+    }
   };
 
   const countriesData = use(countriesPromise);
